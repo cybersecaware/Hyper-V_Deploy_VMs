@@ -2,14 +2,14 @@
 
 # Declare Variables Here From User Input.
 #
-$VMName = Read-Host -Prompt "Enter VM Name: "
-$Ram = Read-Host -Prompt "Enter Ram Required(gb): "
-#$VMPath = Read-Host -Prompt "Enter Path to Store VM: "
-$OSDrive = Read-Host -Prompt "Enter OS Drive Size(gb): "
-$DataDrive = Read-Host -Prompt "Enter Data Drive Size(gb): "
-$ISOPath = Read-Host -Prompt "Enter Path to ISO: "
-$vSwitch = Read-Host -Prompt "Enter vSwitch Name: "
-$vCPU = Read-host -Prompt "Enter Number of vCPUs: "
+$VMName = Read-Host -Prompt "Enter VM Name "
+$Ram = Read-Host -Prompt "Enter Ram Required(gb) "
+#$VMPath = Read-Host -Prompt "Enter Path to Store VM "
+$OSDrive = Read-Host -Prompt "Enter OS Drive Size(gb) "
+$DataDrive = Read-Host -Prompt "Enter Data Drive Size(gb) "
+$ISOPath = Read-Host -Prompt "Enter Path to ISO "
+$vSwitch = Read-Host -Prompt "Enter vSwitch Name "
+$vCPU = Read-host -Prompt "Enter Number of vCPUs "
 
 
 # Create New VM
@@ -24,7 +24,7 @@ Get-VM $VMName | Add-VMDvdDrive -Path "$ISOPath"
 # Add a Data Drive.
 
 if (-not ($DataDrive -eq $null)){
-     # do your processing here
+     # If Data Drive Required.
      New-VHD -Path "E:\Hyper-V\Virtual Hard Disks\$VMName\E_DRIVE.vhdx" -SizeBytes $DataDrive -Dynamic
      Add-VMHardDiskDrive -VMName "$VMName" -Path "E:\Hyper-V\Virtual Hard Disks\$VMName\E_DRIVE.vhdx"
  }
