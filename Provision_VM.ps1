@@ -10,7 +10,7 @@ $i = Read-Host -Prompt "Enter Ram Required(gb) "
 $Ram = [int64]$i * 1GB
 #$VMPath = Read-Host -Prompt "Enter Path to Store VM "
 $j = Read-Host -Prompt "Enter OS Drive Size(gb) "
-$OSDrive = [int64]$i * 1GB
+$OSDrive = [int64]$j * 1GB
 
 # Do we need a Data Drive? Get answer from User.
 if ($Selection -ne "Y" ){
